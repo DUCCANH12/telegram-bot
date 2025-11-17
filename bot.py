@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 TOKEN = "8223648375:AAFcMzVJXhNGpLqTnRS4D3aRKbPQHZkeNls"
-API_URL = "https://script.google.com/macros/s/AKfycbxiC2TGpuduBUHOcyPxnGo61Oicg_eoJjoGnqAPoI73soR-WXhOh6YzatcCMwFkfzlg/exec"   # Dán link ở BƯỚC 1 vào đây
+API_URL = "https://script.google.com/macros/s/AKfycbxiC2TGpuduBUHOcyPxnGo61Oicg_eoJjoGnqAPoI73soR-WXhOh6YzatcCMwFkfzlg/exec"
 
 async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
@@ -23,8 +23,10 @@ async def get(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
+
     app.add_handler(CommandHandler("add", add))
     app.add_handler(CommandHandler("get", get))
+
     app.run_polling()
 
 if __name__ == "__main__":
