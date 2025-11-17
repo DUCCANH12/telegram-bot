@@ -2,7 +2,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import requests
 
-API_URL = "YOUR_GOOGLE_SCRIPT_URL"  # THAY LINK WEB APP
+API_URL = "https://docs.google.com/spreadsheets/d/13j0yTTymeTpuyZCwg46KxtCKKVpgUAjsBr1NbkjWCbE/edit?gid=0#gid=0"  # THAY LINK WEB APP
 
 async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = " ".join(context.args)
@@ -23,10 +23,11 @@ async def get(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Dòng {row} cột D: {r.text}")
 
 def main():
-    app = ApplicationBuilder().token("YOUR_TELEGRAM_TOKEN").build()
+    app = ApplicationBuilder().token("8223648375:AAFcMzVJXhNGpLqTnRS4D3aRKbPQHZkeNls").build()
     app.add_handler(CommandHandler("add", add))
     app.add_handler(CommandHandler("get", get))
     app.run_polling()
 
 if __name__ == "__main__":
     main()
+
